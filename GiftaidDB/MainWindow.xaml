@@ -24,6 +24,7 @@
         <Button x:Name="btRemove" Content="Remove From Database
 " VerticalAlignment="Top" Margin="0,110.92,0,0" Click="btRemove_Click"/>
         <TextBox x:Name="tbRemove" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" Margin="19.207,133.84,0,0" Height="23" VerticalAlignment="Top" KeyDown="tbRemove_KeyDown"/>
+        <Button x:Name="btUpdate" Content="Update" VerticalAlignment="Top" Margin="215,36,0,0" HorizontalAlignment="Left" Width="75" Click="btUpdate_Click"/>
 
     </Grid>
 </Window>
