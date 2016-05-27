@@ -91,5 +91,40 @@ namespace GiftaidDB
         {
             e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            string sql = "";
+
+            if (e.Key == Key.Return)  
+            {
+                try
+                {
+                    this.OpenConn();
+                    //sql statement
+                    if (tbSearch.Text != "")
+                    {
+                        sql = "SELECT * FROM giftaid WHERE item_id LIKE '" + tbSearch.Text.ToString() + "'";
+                    }
+                    else
+                    {
+                        sql = "SELECT * FROM giftaid";
+                    }
+                    
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+                    ds.Reset();
+                    da.Fill(ds);
+                    dt = ds.Tables[0];
+                    dgGiftaid.ItemsSource = dt.DefaultView;
+                    this.CloseConn();
+                }
+                catch(Exception msg)
+                {
+                    MessageBox.Show(msg.ToString());
+                    this.CloseConn();
+                }
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GiftaidDB"
         mc:Ignorable="d"
-        Title="GiftaidViewer" Height="160.666" Width="661.006" Initialized="Viewer_Initialized" SizeToContent="Height" Icon="oxfamLogo.png">
+        Title="GiftaidViewer" Height="285.666" Width="661.006" Initialized="Viewer_Initialized" SizeToContent="Height" Icon="oxfamLogo.png">
     <Window.Resources>
         <Style TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -13,17 +13,18 @@
         </Style>
         <Style TargetType="DataGridCell">
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
-            
+
 
         </Style>
-        
-        
+
+
     </Window.Resources>
-    
-    
-    
+
+
+
     <Grid>
-        <DataGrid x:Name="dgGiftaid"  AutoGeneratingColumn="dgGiftaid_AutoGeneratingColumn" IsReadOnly="True" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" AlternatingRowBackground="#FF40F181" AlternationCount="2" />
+        <DataGrid x:Name="dgGiftaid"  AutoGeneratingColumn="dgGiftaid_AutoGeneratingColumn" IsReadOnly="True" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" AlternatingRowBackground="#FF40F181" AlternationCount="2" Margin="0,23,0,0" />
+        <TextBox x:Name="tbSearch" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" Text="Search Here:" VerticalAlignment="Top" KeyDown="tbSearch_KeyDown"/>
 
     </Grid>
 </Window>
