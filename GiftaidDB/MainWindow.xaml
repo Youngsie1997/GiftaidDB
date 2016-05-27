@@ -8,11 +8,11 @@
         Title="GiftAidInput" Height="466" Width="639.666" Icon="oxfamLogo.png" Loaded="Input_Loaded" SizeToContent="Height">
     <Grid>
         <Label x:Name="lbItemID" Content="Item_ID:&#xD;&#xA;" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="48" Margin="-5,5,0,0"/>
-        <TextBox x:Name="tbItemID" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="43,5,0,0"/>
+        <TextBox x:Name="tbItemID" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="43,5,0,0" KeyDown="tbItemID_KeyDown"/>
         <Label x:Name="lbGiftAid_Number" Content="Giftaid:" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="48" Margin="-5,33,0,0" RenderTransformOrigin="0.115,0.625"/>
-        <TextBox x:Name="tbGiftAid_Number" HorizontalAlignment="Left" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="152.5" Margin="43,33,0,0"/>
+        <TextBox x:Name="tbGiftAid_Number" HorizontalAlignment="Left" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="152.5" Margin="43,33,0,0" KeyDown="tbGiftAid_Number_KeyDown"/>
         <Label x:Name="lbStatus" Content="Status:" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="48" Margin="-5,61,0,0" RenderTransformOrigin="0.115,0.625"/>
-        <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152.5" Margin="43,61,0,0" SelectedIndex="0">
+        <ComboBox x:Name="cbStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152.5" Margin="43,61,0,0" SelectedIndex="0" >
             <ComboBoxItem x:Name="Active" Content="Active"/>
             <ComboBoxItem x:Name="Processing" Content="Processing"/>
             <ComboBoxItem x:Name="Completed" Content="Completed"/>

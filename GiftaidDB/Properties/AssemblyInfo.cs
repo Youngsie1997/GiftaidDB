@@ -8,9 +8,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GiftaidDB")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A database front end used for entering giftaid information")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Oxfam")]
 [assembly: AssemblyProduct("GiftaidDB")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

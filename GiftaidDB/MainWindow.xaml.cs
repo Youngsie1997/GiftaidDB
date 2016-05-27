@@ -79,8 +79,23 @@ namespace GiftaidDB
                     string sql = "INSERT INTO GiftAid(item_id,giftaid_number,status,created_date,last_modified_date) Values('" + tbItemID.Text.ToString() + "','" + tbGiftAid_Number.Text.ToString() + "','" + cbStatus.Text.ToString() + "','now','now');";
                     NpgsqlCommand insertCommand = new NpgsqlCommand(sql, conn);
                     int success = insertCommand.ExecuteNonQuery();
-                    MessageBox.Show(Convert.ToString(success));
+                    if(success == 1)
+                    {
+                        MessageBox.Show("Success!!!");
+                    }
+                    else if(success < 1)
+                    {
+                        MessageBox.Show("Something went wrong:(");
+                    }
                     this.CloseConn();
+                    tbItemID.Focus();
+                    tbItemID.Text = "";
+                    tbGiftAid_Number.Text = "";
+
+
+
+
+
                 }
                 catch (Exception msg)
                 {
@@ -159,6 +174,22 @@ namespace GiftaidDB
             else
             {
                 MessageBox.Show("Please enter the id of the record you would like to remove in the field bellow");
+            }
+        }
+
+        private void tbItemID_KeyDown(object sender, KeyEventArgs e) //Sets the focus to the next field makes it easier to input the data.
+        {
+            if(e.Key == Key.Return )
+            {
+                tbGiftAid_Number.Focus();
+            }
+        }
+
+        private void tbGiftAid_Number_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Return)
+            {
+                cbStatus.Focus();
             }
         }
     }
