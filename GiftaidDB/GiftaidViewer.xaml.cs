@@ -106,6 +106,8 @@ namespace GiftaidDB
                     if (tbSearch.Text != "")
                     {
                         sql = "SELECT * FROM giftaid WHERE item_id LIKE '" + tbSearch.Text.ToString() + "'";
+
+
                     }
                     else
                     {
