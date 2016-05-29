@@ -74,7 +74,7 @@ namespace GiftaidDB
                     //sql statement
                     if (tbSearch.Text != "")
                     {
-                        sql = "SELECT * FROM giftaid WHERE item_id LIKE '" + tbSearch.Text.ToString() + "'";
+                        sql = "SELECT * FROM giftaid WHERE item_id ILIKE '%" + tbSearch.Text.ToString() + "%'";
 
 
                     }
