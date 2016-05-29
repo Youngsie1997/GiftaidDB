@@ -31,7 +31,7 @@ namespace GiftaidDB
         NpgsqlConnection conn; //Create connection that i'm going to set with the loaded event.
         private void Input_Loaded(object sender, RoutedEventArgs e) //sets textbox length for textboxes so it cant cause errors when inputing.
         {
-            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("test.xml"));
+            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
 
             tbItemID.MaxLength = 50;
             tbItemID.MaxLines = 1;

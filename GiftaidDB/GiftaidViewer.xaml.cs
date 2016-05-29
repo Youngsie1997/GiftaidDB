@@ -36,7 +36,7 @@ namespace GiftaidDB
 
         private void Viewer_Initialized(object sender, EventArgs e)
         {
-            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("test.xml"));
+            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
             try
             {
                 giftaidConnection.OpenConn(conn);
