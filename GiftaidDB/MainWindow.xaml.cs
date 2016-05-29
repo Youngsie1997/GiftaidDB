@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Npgsql;
+using PostgreSQL_Connection;
 namespace GiftaidDB
 {
     /// <summary>
@@ -20,49 +21,21 @@ namespace GiftaidDB
     /// </summary>
     public partial class MainWindow : Window
     {
+        Connection giftaidConnection = new Connection();
         public MainWindow()
         {
             InitializeComponent();
         }
-        
-
-        #region ConnectionStuff
-        NpgsqlConnection conn = new NpgsqlConnection("Server=185.116.213.89;Port=5432;User Id=connor;Password=poop;Database=oxfam;"); //Connection string for the Npgsql connecton adapter this needs to be moved to an external source.
-        
-        public void OpenConn() //A method to handle the connection to the database including error logging.
-        {
-            try
-            {
-                conn.Open(); //Opens the connection.
-            }
-            catch(Exception Error)
-            {
-                MessageBox.Show(Error.ToString()); //Displays any errors that have occured to the user via  a messagebox.
-                this.CloseConn(); //Closes the connection incase the error happened after the connection was made.
-            }
-        }
-
-        public void CloseConn()
-        {
-            try
-            {
-                conn.Close();
-            }
-            catch(Exception msg)
-            {
-                MessageBox.Show(msg.ToString()); //Displays any errors that prevented the connection from closing typically the connection already being closed.
-                
-            }
-        }
 
 
-        #endregion
-
+        NpgsqlConnection conn; //Create connection that i'm going to set with the loaded event.
         private void Input_Loaded(object sender, RoutedEventArgs e) //sets textbox length for textboxes so it cant cause errors when inputing.
         {
+            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("test.xml"));
+
             tbItemID.MaxLength = 50;
             tbItemID.MaxLines = 1;
-            
+
             tbGiftAid_Number.MaxLength = 14;
             tbGiftAid_Number.MaxLines = 1;
         }
@@ -74,7 +47,7 @@ namespace GiftaidDB
             {
                 try
                 {
-                    this.OpenConn();
+                    giftaidConnection.OpenConn(conn);
                     //sql statement
                     string sql = "INSERT INTO GiftAid(item_id,giftaid_number,status,created_date,last_modified_date) Values('" + tbItemID.Text.ToString() + "','" + tbGiftAid_Number.Text.ToString() + "','" + cbStatus.Text.ToString() + "','now','now');";
                     NpgsqlCommand insertCommand = new NpgsqlCommand(sql, conn);
@@ -87,7 +60,7 @@ namespace GiftaidDB
                     {
                         MessageBox.Show("Something went wrong:(");
                     }
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                     tbItemID.Focus();
                     tbItemID.Text = "";
                     tbGiftAid_Number.Text = "";
@@ -100,7 +73,7 @@ namespace GiftaidDB
                 catch (Exception msg)
                 {
                     MessageBox.Show(msg.ToString());
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
             }
             else
@@ -158,17 +131,17 @@ namespace GiftaidDB
             {
                 try
                 {
-                    this.OpenConn();
+                    giftaidConnection.OpenConn(conn);
                     string sql = "DELETE FROM giftaid WHERE id = "+tbRemove.Text.ToString()+"";
                     NpgsqlCommand deleteCommand = new NpgsqlCommand(sql, conn);
                     int success = deleteCommand.ExecuteNonQuery();
                     MessageBox.Show(Convert.ToString(success));
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
                 catch(Exception msg)
                 {
                     MessageBox.Show(msg.ToString());
-                    this.CloseConn();
+                    giftaidConnection.OpenConn(conn);
                 }
             }
             else
@@ -231,17 +204,17 @@ namespace GiftaidDB
             {
                 try
                 {
-                    this.OpenConn();
+                    giftaidConnection.OpenConn(conn);
                     string sql = "UPDATE giftaid SET status = '" + cbStatus.Text.ToString() + "',last_modified_date = 'now' WHERE ID = '"+tbRemove.Text.ToString()+"' ";
                     NpgsqlCommand updateCommand = new NpgsqlCommand(sql, conn);
                     int success = updateCommand.ExecuteNonQuery();
                     MessageBox.Show(Convert.ToString(success));
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
                 catch (Exception msg)
                 {
                     MessageBox.Show(msg.ToString());
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
             }
             else

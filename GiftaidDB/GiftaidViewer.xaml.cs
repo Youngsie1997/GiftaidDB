@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Npgsql;
 using System.Data;
+using PostgreSQL_Connection;
 
 
 namespace GiftaidDB
@@ -22,55 +23,23 @@ namespace GiftaidDB
     /// </summary>
     public partial class GiftaidViewer : Window
     {
+        Connection giftaidConnection = new Connection();
+        NpgsqlConnection conn;
+
         public GiftaidViewer()
         {
             InitializeComponent();
         }
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
-
-        #region ConnectionStuff
-        NpgsqlConnection conn = new NpgsqlConnection("Server=185.116.213.89;Port=5432;User Id=connor;Password=poop;Database=oxfam;"); //Connection string for the Npgsql connecton adapter this needs to be moved to an external source.
-
-        public void OpenConn() //A method to handle the connection to the database including error logging.
-        {
-            try
-            {
-                conn.Open(); //Opens the connection.
-            }
-            catch (Exception Error)
-            {
-                MessageBox.Show(Error.ToString()); //Displays any errors that have occured to the user via  a messagebox.
-                this.CloseConn(); //Closes the connection incase the error happened after the connection was made.
-            }
-        }
-
-        public void CloseConn()
-        {
-            try
-            {
-                conn.Close();
-            }
-            catch (Exception msg)
-            {
-                MessageBox.Show(msg.ToString()); //Displays any errors that prevented the connection from closing typically the connection already being closed.
-
-            }
-        }
-
-
-        #endregion
-
-
-
-
-
+       
 
         private void Viewer_Initialized(object sender, EventArgs e)
         {
-          try
+            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("test.xml"));
+            try
             {
-                this.OpenConn();
+                giftaidConnection.OpenConn(conn);
                 //sql statement
                 string sql = "SELECT * FROM giftaid";
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
@@ -78,12 +47,12 @@ namespace GiftaidDB
                 da.Fill(ds);
                 dt = ds.Tables[0];
                 dgGiftaid.ItemsSource = dt.DefaultView;
-                this.CloseConn();
+                giftaidConnection.CloseConn(conn);
             }
             catch(Exception msg)
             {
                 MessageBox.Show(msg.ToString());
-                this.CloseConn();
+                giftaidConnection.CloseConn(conn);
             }
         }
 
@@ -101,7 +70,7 @@ namespace GiftaidDB
             {
                 try
                 {
-                    this.OpenConn();
+                    giftaidConnection.OpenConn(conn);
                     //sql statement
                     if (tbSearch.Text != "")
                     {
@@ -119,12 +88,12 @@ namespace GiftaidDB
                     da.Fill(ds);
                     dt = ds.Tables[0];
                     dgGiftaid.ItemsSource = dt.DefaultView;
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
                 catch(Exception msg)
                 {
                     MessageBox.Show(msg.ToString());
-                    this.CloseConn();
+                    giftaidConnection.CloseConn(conn);
                 }
             }
         }
