@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,24 +37,35 @@ namespace GiftaidDB
 
         private void Viewer_Initialized(object sender, EventArgs e)
         {
-            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
-            try
+
+            if (File.Exists("Connection.xml"))
             {
-                giftaidConnection.OpenConn(conn);
-                //sql statement
-                string sql = "SELECT * FROM giftaid";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
-                ds.Reset();
-                da.Fill(ds);
-                dt = ds.Tables[0];
-                dgGiftaid.ItemsSource = dt.DefaultView;
-                giftaidConnection.CloseConn(conn);
+
+                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                try
+                {
+                    giftaidConnection.OpenConn(conn);
+                    //sql statement
+                    string sql = "SELECT * FROM giftaid";
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+                    ds.Reset();
+                    da.Fill(ds);
+                    dt = ds.Tables[0];
+                    dgGiftaid.ItemsSource = dt.DefaultView;
+                    giftaidConnection.CloseConn(conn);
+                }
+                catch (Exception msg)
+                {
+                    MessageBox.Show(msg.ToString());
+                    giftaidConnection.CloseConn(conn);
+                }
             }
-            catch(Exception msg)
+            else
             {
-                MessageBox.Show(msg.ToString());
-                giftaidConnection.CloseConn(conn);
+                MessageBox.Show("Please make sure Connection.xml is in the directory and contains a valid psql element see ConnectionExample..", "The Connection File Is Missing", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
             }
+
         }
 
         private void dgGiftaid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

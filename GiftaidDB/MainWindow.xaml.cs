@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,17 @@ namespace GiftaidDB
         NpgsqlConnection conn; //Create connection that i'm going to set with the loaded event.
         private void Input_Loaded(object sender, RoutedEventArgs e) //sets textbox length for textboxes so it cant cause errors when inputing.
         {
-            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+            if(File.Exists("Connection.xml")) //Checks whether the xml file exists preventing the Application from crashing without explination. Prompts the user to check the Connect file exists and is correct and then closes as application  is useless without it.
+            {
+                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+            }
+            else
+            {
+                MessageBox.Show("Please make sure Connection.xml is in the same directory and contains a valid psql element see ConnectionExample..", "The Connection File Is Missing", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
+
+          
 
             tbItemID.MaxLength = 50;
             tbItemID.MaxLines = 1;
