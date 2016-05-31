@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Npgsql;
+using System.Windows;
 namespace PostgreSQL_Connection
 {
    
@@ -20,6 +20,7 @@ namespace PostgreSQL_Connection
 
         public string CreateConnString(string xml)
         {
+            
             XmlReader connectionXmlReader = XmlReader.Create(xml);
 
             while(connectionXmlReader.Read())
@@ -63,6 +64,31 @@ namespace PostgreSQL_Connection
             catch(Exception Error)
             {
                 throw Error;
+            }
+        }
+
+        public void Delete(NpgsqlConnection conn,int id) //Delete command using id
+        {
+            try
+            {
+                OpenConn(conn);
+                string sql = "DELETE FROM giftaid WHERE id = "+id+"";
+                NpgsqlCommand deleteCommand = new NpgsqlCommand(sql, conn);
+                int Success = deleteCommand.ExecuteNonQuery();
+                if(Success >= 1)
+                {
+                    MessageBox.Show("Successfully deleted row " +id+" from the table","Delete Command Result",MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+                else
+                {
+                    
+                    MessageBox.Show("Something went wrong :( \n Double check the Id is correct","Delete Command Result",MessageBoxButton.OK,MessageBoxImage.Warning);
+                }
+                CloseConn(conn);
+            }
+            catch(Exception Error)
+            {
+                MessageBox.Show(Error.ToString());
             }
         }
         
