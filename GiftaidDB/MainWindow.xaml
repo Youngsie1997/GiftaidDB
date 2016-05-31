@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GiftaidDB"
         mc:Ignorable="d"
         Title="GiftAidInput" Height="466" Width="639.666" Icon="oxfamLogo.png" Loaded="Input_Loaded" SizeToContent="Height">
-    
+
     <Grid>
         <Label x:Name="lbItemID" Content="Item_ID:&#xD;&#xA;" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="48" Margin="-5,5,0,0"/>
         <TextBox x:Name="tbItemID" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="43,5,0,0" KeyDown="tbItemID_KeyDown"/>
@@ -26,6 +26,7 @@
 " VerticalAlignment="Top" Margin="0,110.92,0,0" Click="btRemove_Click"/>
         <TextBox x:Name="tbRemove" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" Margin="19.207,133.84,0,0" Height="23" VerticalAlignment="Top" KeyDown="tbRemove_KeyDown" PreviewKeyDown="tbRemove_PreviewKeyDown"/>
         <Button x:Name="btUpdate" Content="Update" VerticalAlignment="Top" Margin="215,36,0,0" HorizontalAlignment="Left" Width="75" Click="btUpdate_Click"/>
+        <Button x:Name="btBarcode" Content="Barcode-Generator" VerticalAlignment="Top" Margin="308.667,36.04,205.999,0" Click="btBarcode_Click"/>
 
     </Grid>
 </Window>

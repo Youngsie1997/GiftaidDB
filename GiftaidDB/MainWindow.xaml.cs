@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Data;
+using System.Drawing;
+using BarcodeLib;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +12,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -27,6 +29,9 @@ namespace GiftaidDB
         {
             InitializeComponent();
         }
+
+      
+        
 
 
         NpgsqlConnection conn; //Create connection that i'm going to set with the loaded event.
@@ -224,6 +229,60 @@ namespace GiftaidDB
             if(e.Key == Key.Space)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btBarcode_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Barcode_Generator giftaidBarcodeGenerator = new Barcode_Generator();
+                if (File.Exists("Connection.xml"))
+                {
+                    conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                }
+
+                Barcode giftaidBarcode = new Barcode()
+                {
+                    IncludeLabel = true,
+                    Alignment = AlignmentPositions.CENTER,
+                    LabelPosition = LabelPositions.BOTTOMCENTER,
+                    Width = 150,
+                    Height = 150,
+                    RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                    BackColor = Color.White,
+                    ForeColor = Color.Black,
+                };
+
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+
+                if(tbRemove.Text != "")
+                {
+                    giftaidConnection.OpenConn(conn);
+                    string sql = "SELECT * FROM giftaid WHERE ID = " + tbRemove.Text + "";
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+                    ds.Reset();
+                    da.Fill(ds);
+                    dt = ds.Tables[0];
+
+                    giftaidBarcodeGenerator.BarcodePicbox.Image = giftaidBarcode.Encode(TYPE.ITF14, "" + dt.Rows[0][2] + "");
+                    giftaidBarcodeGenerator.Show();
+                    giftaidConnection.CloseConn(conn);
+
+                }
+                else
+                {
+                    MessageBox.Show("Please make sure you have entered a valid id into the Id textbox bellow","Barcode-Generator",MessageBoxButton.OK,MessageBoxImage.Error);
+                }
+              
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Make sure the id of the row entered into the textbox exists in table","Barcode-Generator",MessageBoxButton.OK,MessageBoxImage.Error);
+               
             }
         }
     }
