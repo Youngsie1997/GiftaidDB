@@ -219,12 +219,6 @@ namespace GiftaidDB
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            Barcode test = new Barcode();
-            test.Show();
-        }
-
         private void tbRemove_PreviewKeyDown(object sender, KeyEventArgs e) //needed a seperate event to handle space  before the other event could.
         {
             if(e.Key == Key.Space)
