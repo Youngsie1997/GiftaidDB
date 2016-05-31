@@ -30,19 +30,21 @@ namespace GiftaidDB
 
 
         NpgsqlConnection conn; //Create connection that i'm going to set with the loaded event.
-        private void Input_Loaded(object sender, RoutedEventArgs e) //sets textbox length for textboxes so it cant cause errors when inputing.
+        private void Input_Loaded(object sender, RoutedEventArgs e) //sets textbox length for textboxes so it cant cause errors when inputing. presents a error insturcting user to add the file with a correct psql string then closes app as its useless without a connection to psql.
         {
-            if(File.Exists("Connection.xml")) //Checks whether the xml file exists preventing the Application from crashing without explination. Prompts the user to check the Connect file exists and is correct and then closes as application  is useless without it.
+
+           if(File.Exists("Connection.xml")) //Check if file exists as the application won't load without it.
             {
                 conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
             }
-            else
+           else
             {
-                MessageBox.Show("Please make sure Connection.xml is in the same directory and contains a valid psql element see ConnectionExample..", "The Connection File Is Missing", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please make sure Connection.xml is in the directory and contains a valid psql element see ConnectionExample..","The Connection File Is Missing",MessageBoxButton.OK,MessageBoxImage.Error ); 
                 Application.Current.Shutdown();
             }
 
-          
+
+            
 
             tbItemID.MaxLength = 50;
             tbItemID.MaxLines = 1;
@@ -142,12 +144,8 @@ namespace GiftaidDB
             {
                 try
                 {
-                    giftaidConnection.OpenConn(conn);
-                    string sql = "DELETE FROM giftaid WHERE id = "+tbRemove.Text.ToString()+"";
-                    NpgsqlCommand deleteCommand = new NpgsqlCommand(sql, conn);
-                    int success = deleteCommand.ExecuteNonQuery();
-                    MessageBox.Show(Convert.ToString(success));
-                    giftaidConnection.CloseConn(conn);
+                    giftaidConnection.Delete(conn, Convert.ToInt32(tbRemove.Text));
+
                 }
                 catch(Exception msg)
                 {
@@ -213,24 +211,25 @@ namespace GiftaidDB
         {
             if (tbRemove.Text.ToString() != "")
             {
-                try
-                {
-                    giftaidConnection.OpenConn(conn);
-                    string sql = "UPDATE giftaid SET status = '" + cbStatus.Text.ToString() + "',last_modified_date = 'now' WHERE ID = '"+tbRemove.Text.ToString()+"' ";
-                    NpgsqlCommand updateCommand = new NpgsqlCommand(sql, conn);
-                    int success = updateCommand.ExecuteNonQuery();
-                    MessageBox.Show(Convert.ToString(success));
-                    giftaidConnection.CloseConn(conn);
-                }
-                catch (Exception msg)
-                {
-                    MessageBox.Show(msg.ToString());
-                    giftaidConnection.CloseConn(conn);
-                }
+                giftaidConnection.Update(conn, cbStatus.Text.ToString(), Convert.ToInt32(tbRemove.Text));
             }
             else
             {
                 MessageBox.Show("Please enter the id of the record you would like to Update in the field bellow");
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Barcode test = new Barcode();
+            test.Show();
+        }
+
+        private void tbRemove_PreviewKeyDown(object sender, KeyEventArgs e) //needed a seperate event to handle space  before the other event could.
+        {
+            if(e.Key == Key.Space)
+            {
+                e.Handled = true;
             }
         }
     }

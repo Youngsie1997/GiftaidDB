@@ -65,6 +65,29 @@ namespace PostgreSQL_Connection
             }
         }
         
+        public void Update(NpgsqlConnection conn,string status,int id) //Update command using id
+        {
+            try
+            {
+                OpenConn(conn);
+                string sql = "UPDATE giftaid SET status = '" + status + "',last_modified_date = 'now' WHERE ID = " + id + " ";
+                NpgsqlCommand updateCommand = new NpgsqlCommand(sql, conn);
+                int Success = updateCommand.ExecuteNonQuery();
+                if (Success >= 1)
+                {
+                    MessageBox.Show("Successfully updated row " + id + "", "Update Command Result", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong :( \n Double check the ID is correct", "Update Command Result", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                CloseConn(conn);
+            }
+            catch(Exception Error)
+            {
+                throw Error;
+            }
+        }
 
     }
 }
