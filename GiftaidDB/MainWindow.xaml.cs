@@ -269,14 +269,11 @@ namespace GiftaidDB
                     giftaidBarcodeGenerator.BarcodePicbox.Image = giftaidBarcode.Encode(TYPE.ITF14, "" + dt.Rows[0][2] + "");
                     giftaidBarcodeGenerator.Show();
                     giftaidConnection.CloseConn(conn);
-
                 }
                 else
                 {
                     MessageBox.Show("Please make sure you have entered a valid id into the Id textbox bellow","Barcode-Generator",MessageBoxButton.OK,MessageBoxImage.Error);
                 }
-              
-
 
             }
             catch (Exception)
