@@ -1,0 +1,32 @@
+﻿<Window x:Name="BarcodePrinter" x:Class="GiftaidDB.Barcode_Printer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GiftaidDB"
+        mc:Ignorable="d"
+        Title="Barcode_Printer" Height="1152" Width="829" Icon="oxfamLogo.ico">
+    <ScrollViewer Height="auto" VerticalScrollBarVisibility="Auto" >
+        <Grid x:Name="BarcodeGrid" Width="811" Height="1122.52" ScrollViewer.CanContentScroll="True"   ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <WindowsFormsHost x:Name="BarcodePicFrame1" Height="150" Margin="10,0,0,962.52" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="150">
+                <wf:PictureBox x:Name="BarcodePicbox1" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame2" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicbox2" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame3" Height="150" Width="150" Margin="330,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left">
+                <wf:PictureBox x:Name="BarcodePicbox3" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame4" Height="150" Width="150" Margin="490,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" >
+                <wf:PictureBox x:Name="BarcodePicbox4" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="200,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+            <WindowsFormsHost x:Name="BarcodePicFrame4_Copy" Height="150" Width="150" Margin="645,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" >
+                <wf:PictureBox x:Name="BarcodePicbox5" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+
+        </Grid>
+
+    </ScrollViewer>
+</Window>
