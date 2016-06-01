@@ -100,6 +100,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Barcode-Printer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GiftaidViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,10 +123,14 @@
     <Compile Include="Barcode-Generator.xaml.cs">
       <DependentUpon>Barcode-Generator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Barcode-Printer.xaml.cs">
+      <DependentUpon>Barcode-Printer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="GiftaidViewer.xaml.cs">
       <DependentUpon>GiftaidViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IBarcode_Printer.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

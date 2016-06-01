@@ -282,6 +282,12 @@ namespace GiftaidDB
                
             }
         }
+
+        private void btBarcode_Printer_Click(object sender, RoutedEventArgs e)
+        {
+            Barcode_Printer barcodeprint = new Barcode_Printer();
+            barcodeprint.Show();
+        }
     }
     
 }
