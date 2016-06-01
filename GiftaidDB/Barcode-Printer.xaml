@@ -21,10 +21,102 @@
             <WindowsFormsHost x:Name="BarcodePicFrame4" Height="150" Width="150" Margin="490,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" >
                 <wf:PictureBox x:Name="BarcodePicbox4" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
             </WindowsFormsHost>
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="200,215,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-            <WindowsFormsHost x:Name="BarcodePicFrame4_Copy" Height="150" Width="150" Margin="645,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" >
+            <WindowsFormsHost x:Name="BarcodePicFrame5" Height="150" Width="150" Margin="645,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" >
                 <wf:PictureBox x:Name="BarcodePicbox5" Click="BarcodePicbox_Click"/>
             </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame6" Height="150" Width="150" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicbox6" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame7" Height="150" Width="150" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicbox7" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame8" Height="150" Width="150" HorizontalAlignment="Left" Margin="10,490,0,482.52" d:LayoutOverrides="Width">
+                <wf:PictureBox x:Name="BarcodePicbox8" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame9" Height="150" Width="150" HorizontalAlignment="Left" Margin="10,0,0,322.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicbox9" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame10" Height="150" Width="150" HorizontalAlignment="Left" Margin="10,0,0,162.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox10" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame11" Height="150" Width="150" Margin="10,0,0,7.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left">
+                <wf:PictureBox x:Name="BarcodePicBox11" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame12" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,170,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" >
+                <wf:PictureBox x:Name="BarcodePicBox12" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame13" Height="150" Width="150" Margin="330,170,331,0" VerticalAlignment="Top" d:LayoutOverrides="Height" >
+                <wf:PictureBox x:Name="BarcodePicBox13" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame14" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,170,171,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" >
+                <wf:PictureBox x:Name="BarcodePicBox14" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame15" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,170,16,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" >
+                <wf:PictureBox x:Name="BarcodePicBox15" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame16" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,330,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" >
+                <wf:PictureBox x:Name="BarcodePicBox16" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame17" Height="150" Width="150" Margin="330,330,331,0" VerticalAlignment="Top" d:LayoutOverrides="Height">
+                <wf:PictureBox x:Name="BarcodePicBox17" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame18" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,330,171,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" >
+                <wf:PictureBox x:Name="BarcodePicBox18" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame19" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,330,16,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox19" Height="150" Width="150" Click="BarcodePicbox_Click" ></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame20" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,490,0,482.52" d:LayoutOverrides="Width">
+                <wf:PictureBox x:Name="BarcodePicBox20" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame21" Height="150" Width="150" Margin="330,490,331,482.52" >
+                <wf:PictureBox x:Name="BarcodePicBox21" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame22" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,490,171,482.52" d:LayoutOverrides="Width" >
+                <wf:PictureBox x:Name="BarcodePicBox22" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame23" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,490,16,482.52" d:LayoutOverrides="Width" >
+                <wf:PictureBox x:Name="BarcodePicBox23" Height="150" Width="150" Click="BarcodePicbox_Click"></wf:PictureBox>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame24" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,0,0,322.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox24" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame25" Height="150" Width="150" Margin="330,0,331,322.52" VerticalAlignment="Bottom" d:LayoutOverrides="Height">
+                <wf:PictureBox x:Name="BarcodePicBox25" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame26" Height="150" Width="150" Margin="0,0,171,322.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" HorizontalAlignment="Right">
+                <wf:PictureBox x:Name="BarcodePicBox26" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame27" Height="150" Width="150" Margin="0,0,16,322.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox27" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame28" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,0,0,162.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox28" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame29" Height="150" Width="150" Margin="330,0,331,162.52" VerticalAlignment="Bottom" d:LayoutOverrides="Height">
+                <wf:PictureBox x:Name="BarcodePicBox29" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame30" Height="150" Width="150" Margin="0,0,171,162.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" HorizontalAlignment="Right">
+                <wf:PictureBox x:Name="BarcodePicBox30" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame31" Height="150" Width="150" Margin="0,0,16,162.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox31" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame32" Height="150" Width="150" HorizontalAlignment="Left" Margin="170,0,0,7.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox32" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame33" Height="150" Width="150" HorizontalAlignment="Stretch" Margin="330,0,331,7.52" VerticalAlignment="Bottom" d:LayoutOverrides="Height">
+                <wf:PictureBox x:Name="BarcodePicBox33" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame34" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,0,171,7.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox34" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <WindowsFormsHost x:Name="BarcodePicFrame35" Height="150" Width="150" HorizontalAlignment="Right" Margin="0,0,16,7.52" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height">
+                <wf:PictureBox x:Name="BarcodePicBox35" Height="150" Width="150" Click="BarcodePicbox_Click"/>
+            </WindowsFormsHost>
+            <Button x:Name="btPrint" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Click="button_Click" Width="75" Margin="35,0,0,0"/>
+
+
 
         </Grid>
 
