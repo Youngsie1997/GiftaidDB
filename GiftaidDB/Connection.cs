@@ -116,5 +116,27 @@ namespace PostgreSQL_Connection
             }
         }
 
+        public void NonQuery(NpgsqlConnection conn,int id,string sql)
+        {
+            try
+            {
+                OpenConn(conn);
+                NpgsqlCommand updatecommand = new NpgsqlCommand(sql, conn);
+                int Success = updatecommand.ExecuteNonQuery();
+                if(Success >= 1)
+                {
+                    MessageBox.Show("Successfully updated row " + id + "", "Update Command Result", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong :( \n Double check the ID is correct", "Update Command Result", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            catch(Exception Error)
+            {
+                throw Error;
+            }
+        }
+
     }
 }
