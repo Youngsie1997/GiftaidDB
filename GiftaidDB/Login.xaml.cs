@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using PostgreSQL_Connection;
 using Npgsql;
 using System.Data;
+using System.IO;
 
 namespace GiftaidDB
 {
@@ -27,7 +18,15 @@ namespace GiftaidDB
         public Login()
         {
             InitializeComponent();
-            conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+            if(File.Exists("Connection.xml"))
+            {
+                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+            }
+            else
+            {
+                MessageBox.Show("Please make sure Connection.xml is in the directory and contains a valid psql element see ConnectionExample..", "The Connection File Is Missing", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
