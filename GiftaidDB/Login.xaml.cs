@@ -68,9 +68,9 @@ namespace GiftaidDB
                     MessageBox.Show("Login Successful", "Login Window", MessageBoxButton.OK, MessageBoxImage.None);
                     string sql2 = "UPDATE login SET last_login='now' WHERE ID='" + ds.Tables[0].Rows[0][0] + "'";
                     giftaidConnection.NonQuery(conn,Convert.ToInt32(ds.Tables[0].Rows[0][0]), sql2);
-                    this.Hide();
                     MainWindow main = new MainWindow();
                     main.Show();
+                    this.Close();
                 }
                 else
                 {
