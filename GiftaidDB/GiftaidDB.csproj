@@ -63,11 +63,11 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib">
-      <HintPath>..\..\..\Stuff\barcode_bin\BarcodeLib.dll</HintPath>
+      <HintPath>E:\Projects\GiftaidDB\GiftaidDB\bin\Debug\BarcodeLib.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql, Version=3.1.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.3.1.2\lib\net45\Npgsql.dll</HintPath>
@@ -130,7 +130,6 @@
     <Compile Include="GiftaidViewer.xaml.cs">
       <DependentUpon>GiftaidViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IBarcode_Printer.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -161,7 +160,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="GiftaidDB_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

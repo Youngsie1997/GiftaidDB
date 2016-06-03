@@ -42,13 +42,37 @@ namespace GiftaidDB
             {
                 e.Handled = true;
             }
+            if(e.Key == Key.Return)
+            {
+                tbPassword.Focus();
+            }
+        }
+
+        private void tbPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+            if(e.Key == Key.Return)
+            {
+                login();
+            }
+
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(tbUserName.Text == "" || tbPassword.Password == "")
+
+            login();
+
+        }
+
+        private void login()
+        {
+            if (tbUserName.Text == "" || tbPassword.Password == "")
             {
-                MessageBox.Show("Please provide UserName and Password","Login Window",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Please provide UserName and Password", "Login Window", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -56,7 +80,7 @@ namespace GiftaidDB
             {
                 giftaidConnection.OpenConn(conn);
                 string sql = "SELECT * FROM login WHERE UserName='" + tbUserName.Text + "' and Password='" + tbPassword.Password + "' ";
-                
+
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
                 ds.Reset();
@@ -67,7 +91,7 @@ namespace GiftaidDB
                 {
                     MessageBox.Show("Login Successful", "Login Window", MessageBoxButton.OK, MessageBoxImage.None);
                     string sql2 = "UPDATE login SET last_login='now' WHERE ID='" + ds.Tables[0].Rows[0][0] + "'";
-                    giftaidConnection.NonQuery(conn,Convert.ToInt32(ds.Tables[0].Rows[0][0]), sql2);
+                    giftaidConnection.NonQuery(conn, Convert.ToInt32(ds.Tables[0].Rows[0][0]), sql2);
                     MainWindow main = new MainWindow();
                     main.Show();
                     this.Close();
@@ -82,7 +106,6 @@ namespace GiftaidDB
                 MessageBox.Show(Error.ToString());
                 giftaidConnection.CloseConn(conn);
             }
-           
 
         }
     }
