@@ -20,7 +20,7 @@ namespace GiftaidDB
             InitializeComponent();
             if(File.Exists("Connection.xml"))
             {
-                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                conn = giftaidConnection.CreateConn("Connection.xml");
             }
             else
             {
@@ -31,6 +31,8 @@ namespace GiftaidDB
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            tbUserName.Focus();
+
             tbUserName.MaxLength = 20;
             tbPassword.MaxLength = 20;
             

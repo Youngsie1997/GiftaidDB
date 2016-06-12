@@ -24,7 +24,7 @@
 
     <Grid>
         <DataGrid x:Name="dgGiftaid"  AutoGeneratingColumn="dgGiftaid_AutoGeneratingColumn" IsReadOnly="True" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" AlternatingRowBackground="#FF40F181" AlternationCount="2" Margin="0,23,0,0" />
-        <TextBox x:Name="tbSearch" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" KeyDown="tbSearch_KeyDown" TextAlignment="Center"/>
+        <TextBox x:Name="tbSearch" Height="23" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" VerticalAlignment="Top" KeyDown="tbSearch_KeyDown" TextAlignment="Center" Text="Search:"/>
 
     </Grid>
 </Window>

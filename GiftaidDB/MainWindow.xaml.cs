@@ -40,7 +40,7 @@ namespace GiftaidDB
 
            if(File.Exists("Connection.xml")) //Check if file exists as the application won't load without it.
             {
-                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                conn = giftaidConnection.CreateConn("Connection.xml");
             }
            else
             {
@@ -239,7 +239,7 @@ namespace GiftaidDB
                 Barcode_Generator giftaidBarcodeGenerator = new Barcode_Generator();
                 if (File.Exists("Connection.xml"))
                 {
-                    conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                    conn = giftaidConnection.CreateConn("Connection.xml");
                 }
 
                 Barcode giftaidBarcode = new Barcode()
