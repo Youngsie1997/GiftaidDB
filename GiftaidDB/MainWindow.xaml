@@ -20,11 +20,9 @@
             <ComboBoxItem x:Name="Removed" Content="Removed"/>
         </ComboBox>
         <Button x:Name="btAdd" Content="Add To Database" VerticalAlignment="Top" Margin="0,87.96,0,0" Click="btAdd_Click"/>
-        <Button x:Name="btViewer" Content="Show Database" Margin="0,161.84,0,0" Click="btViewer_Click" Height="24" VerticalAlignment="Top" d:LayoutOverrides="Height" />
-        <Label x:Name="lbRemove" Content="ID:" HorizontalAlignment="Left" Margin="-5,130.88,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.39"/>
+        <Button x:Name="btViewer" Content="Show Database" Margin="0,137.88,0,0" Click="btViewer_Click" Height="24" VerticalAlignment="Top" d:LayoutOverrides="Height" />
         <Button x:Name="btRemove" Content="Remove From Database
-" VerticalAlignment="Top" Margin="0,110.92,0,0" Click="btRemove_Click"/>
-        <TextBox x:Name="tbRemove" Style="{DynamicResource SimpleTextBox}" TextWrapping="Wrap" Margin="19.207,133.84,0,0" Height="23" VerticalAlignment="Top" KeyDown="tbRemove_KeyDown" PreviewKeyDown="tbRemove_PreviewKeyDown"/>
+" VerticalAlignment="Top" Margin="0,112.92,0,0" Click="btRemove_Click"/>
         <Button x:Name="btUpdate" Content="Update" VerticalAlignment="Top" Margin="215,36,0,0" HorizontalAlignment="Left" Width="75" Click="btUpdate_Click"/>
         <Button x:Name="btBarcode" Content="Barcode-Generator" VerticalAlignment="Top" Margin="308.667,36.04,205.999,0" Click="btBarcode_Click"/>
         <Button x:Name="btBarcode_Printer" Content="Barcode-Printer" VerticalAlignment="Top" Margin="308.667,61,205.999,0" Click="btBarcode_Printer_Click"/>
