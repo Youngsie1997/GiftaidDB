@@ -145,11 +145,12 @@ namespace GiftaidDB
 
         private void btRemove_Click(object sender, RoutedEventArgs e)
         {
-            if(tbRemove.Text.ToString() != "")
+            IdDialog removeId = new IdDialog("Please enter Id of the field you wish to remove:");
+            if (removeId.ShowDialog() == true)
             {
                 try
                 {
-                    giftaidConnection.Delete(conn, Convert.ToInt32(tbRemove.Text));
+                    giftaidConnection.Delete(conn, Convert.ToInt32(removeId.Id));
 
                 }
                 catch(Exception msg)
@@ -158,10 +159,7 @@ namespace GiftaidDB
                     giftaidConnection.OpenConn(conn);
                 }
             }
-            else
-            {
-                MessageBox.Show("Please enter the id of the record you would like to remove in the field bellow");
-            }
+           
         }
 
         private void tbItemID_KeyDown(object sender, KeyEventArgs e) //Sets the focus to the next field makes it easier to input the data.
@@ -214,26 +212,22 @@ namespace GiftaidDB
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (tbRemove.Text.ToString() != "")
+            IdDialog updateId = new IdDialog("Please enter Id of the field you wish to update:");
+            if(updateId.ShowDialog() == true)
             {
-                giftaidConnection.Update(conn, cbStatus.Text.ToString(), Convert.ToInt32(tbRemove.Text));
+                giftaidConnection.Update(conn, cbStatus.Text.ToString(), Convert.ToInt32(updateId.Id));
             }
             else
             {
-                MessageBox.Show("Please enter the id of the record you would like to Update in the field bellow");
+                
             }
         }
 
-        private void tbRemove_PreviewKeyDown(object sender, KeyEventArgs e) //needed a seperate event to handle space  before the other event could.
-        {
-            if(e.Key == Key.Space)
-            {
-                e.Handled = true;
-            }
-        }
+       
 
         private void btBarcode_Click(object sender, RoutedEventArgs e)
         {
+            IdDialog barcodeId = new IdDialog("Please Enter Id of Barcode You wish to generate:");
             try
             {
                 Barcode_Generator giftaidBarcodeGenerator = new Barcode_Generator();
@@ -257,10 +251,10 @@ namespace GiftaidDB
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
 
-                if(tbRemove.Text != "")
+                if(barcodeId.ShowDialog() == true)
                 {
                     giftaidConnection.OpenConn(conn);
-                    string sql = "SELECT * FROM giftaid WHERE ID = " + tbRemove.Text + "";
+                    string sql = "SELECT * FROM giftaid WHERE ID = " + barcodeId.Id + "";
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
                     ds.Reset();
                     da.Fill(ds);
@@ -272,13 +266,14 @@ namespace GiftaidDB
                 }
                 else
                 {
-                    MessageBox.Show("Please make sure you have entered a valid id into the Id textbox bellow","Barcode-Generator",MessageBoxButton.OK,MessageBoxImage.Error);
+                  
                 }
 
             }
             catch (Exception)
             {
                 MessageBox.Show("Make sure the id of the row entered into the textbox exists in table","Barcode-Generator",MessageBoxButton.OK,MessageBoxImage.Error);
+                giftaidConnection.CloseConn(conn);
                
             }
         }
