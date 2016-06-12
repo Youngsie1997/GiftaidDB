@@ -18,7 +18,7 @@ namespace PostgreSQL_Connection
         string password;
         string database;
 
-        public string CreateConnString(string xml)
+        public NpgsqlConnection CreateConn(string xml)
         {
             
             XmlReader connectionXmlReader = XmlReader.Create(xml);
@@ -39,7 +39,7 @@ namespace PostgreSQL_Connection
                 }
             }
 
-            string conn = ("Server=" + server + ";Port=" + port + ";User Id=" + userid + ";Password=" + password + ";Database=" + database + ";");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=" + server + ";Port=" + port + ";User Id=" + userid + ";Password=" + password + ";Database=" + database + ";");
             return conn;
         }
 

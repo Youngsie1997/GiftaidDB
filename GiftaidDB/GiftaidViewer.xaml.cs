@@ -37,11 +37,12 @@ namespace GiftaidDB
 
         private void Viewer_Initialized(object sender, EventArgs e)
         {
-
+            tbSearch.SelectAll();
+            tbSearch.Focus();
             if (File.Exists("Connection.xml"))
             {
 
-                conn = new NpgsqlConnection(giftaidConnection.CreateConnString("Connection.xml"));
+                conn = giftaidConnection.CreateConn("Connection.xml");
                 try
                 {
                     giftaidConnection.OpenConn(conn);

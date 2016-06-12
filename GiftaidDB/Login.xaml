@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GiftaidDB"
         mc:Ignorable="d"
-        Title="Login" Height="134" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="oxfamLogo.ico" SizeToContent="Height">
+        Title="Login" Height="134" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="oxfamLogo.ico" SizeToContent="Height" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBox x:Name="tbUserName" Height="23" Margin="63.083,16.04,10,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyDown="tbUserName_PreviewKeyDown"/>
         <Label x:Name="lbUserName" Content="UserName:" HorizontalAlignment="Left" Margin="0,23.08,0,0" Style="{DynamicResource SimpleLabel}" VerticalAlignment="Top" RenderTransformOrigin="-0.214,0.663"/>

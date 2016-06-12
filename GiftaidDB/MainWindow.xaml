@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GiftaidDB"
         mc:Ignorable="d"
-        Title="GiftAidInput" Height="466" Width="639.666" Icon="oxfamLogo.png" Loaded="Input_Loaded" SizeToContent="Height">
+        Title="GiftAidInput" Height="466" Width="639.666" Icon="oxfamLogo.png" Loaded="Input_Loaded" SizeToContent="Height" ResizeMode="CanMinimize">
 
     <Grid>
         <Label x:Name="lbItemID" Content="Item_ID:&#xD;&#xA;" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="48" Margin="-5,5,0,0"/>

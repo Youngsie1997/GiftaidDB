@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GiftaidDB"
         mc:Ignorable="d"
-        Title="Barcode_Printer" Height="1152" Width="829" Icon="oxfamLogo.ico">
+        Title="Barcode_Printer" Height="758" Width="829" Icon="oxfamLogo.ico" ResizeMode="CanResizeWithGrip">
     <ScrollViewer Height="auto" VerticalScrollBarVisibility="Auto" >
         <Grid x:Name="BarcodeGrid" Width="811" Height="1122.52" ScrollViewer.CanContentScroll="True"   ScrollViewer.VerticalScrollBarVisibility="Visible">
             <WindowsFormsHost x:Name="BarcodePicFrame1" Height="150" Margin="10,0,0,962.52" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="150">
